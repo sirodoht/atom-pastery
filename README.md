@@ -1,6 +1,6 @@
-# Atom Pastery :cake:
+# Atom Pastery
 
-> A package for the sweetest pastebin, pastery.net
+> A package for the sweetest pastebin, pastery.net :cake:
 
 Pastery creates a new paste on the [pastery.net](https://www.pastery.net) pastebin.
 
