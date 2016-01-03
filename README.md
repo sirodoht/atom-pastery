@@ -2,7 +2,7 @@
 
 > A package for the sweetest pastebin, pastery.net
 
-Pastery creates a new paste on the [pastery.net](pastery.net) pastebin.
+Pastery creates a new paste on the [pastery.net](https://www.pastery.net) pastebin.
 
 If there is text selected, it will post it, otherwise it will post the whole file.
 
