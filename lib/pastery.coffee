@@ -2,33 +2,17 @@
 
 request = require 'request'
 
-PasteryView = require './pastery-view'
 settings = require './settings'
 
 module.exports = Pastery =
-  config: settings.config
-
-  pasteryView: null
-  modalPanel: null
   subscriptions: null
 
   activate: (state) ->
-    @pasteryView = new PasteryView(state.pasteryViewState)
-    @modalPanel = atom.workspace.addModalPanel(item: @pasteryView.getElement(), visible: false)
-
     # Events subscribed to in atom's system can be easily cleaned up with a CompositeDisposable
     @subscriptions = new CompositeDisposable
 
     # Register command that toggles this view
     @subscriptions.add atom.commands.add 'atom-workspace', 'pastery:paste': => @paste()
-
-  deactivate: ->
-    @modalPanel.destroy()
-    @subscriptions.dispose()
-    @pasteryView.destroy()
-
-  serialize: ->
-    pasteryViewState: @pasteryView.serialize()
 
   paste: ->
     editor = atom.workspace.getActiveTextEditor()
