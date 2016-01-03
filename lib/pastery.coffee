@@ -1,9 +1,13 @@
-PasteryView = require './pastery-view'
 {CompositeDisposable} = require 'atom'
 
 request = require 'request'
 
+PasteryView = require './pastery-view'
+settings = require './settings'
+
 module.exports = Pastery =
+  config: settings.config
+
   pasteryView: null
   modalPanel: null
   subscriptions: null
@@ -30,16 +34,22 @@ module.exports = Pastery =
     editor = atom.workspace.getActiveTextEditor()
     fileName = editor.getTitle()
     content = editor.getSelectedText() || editor.getText()
+    apiKey = atom.config.get('pastery.apiKey')
+
+    qs = {}
+    qs.title = fileName
+    if apiKey
+      qs.api_key = apiKey
 
     request.post {
-      qs:
-        'title': fileName
+      qs: qs
       url: 'https://www.pastery.net/api/paste/'
       body: content
     }, (error, res, body) ->
       console.log 'Pastery.net response error', error
       console.log 'Pastery.net response body', body
 
-      url = JSON.parse(body).url
-      atom.clipboard.write(url)
+      if atom.config.get('pastery.injectToClipboard')
+        url = JSON.parse(body).url
+        atom.clipboard.write(url)
       return
