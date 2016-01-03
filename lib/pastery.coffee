@@ -5,6 +5,7 @@ request = require 'request'
 settings = require './settings'
 
 module.exports = Pastery =
+  config: settings.config
   subscriptions: null
 
   activate: (state) ->
