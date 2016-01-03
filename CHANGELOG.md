@@ -1,5 +1,5 @@
 ## 1.0.0
-* Add notifications
+* Add notifications settings
 
 ## 0.3.1
 * Fix settings button not showing up
