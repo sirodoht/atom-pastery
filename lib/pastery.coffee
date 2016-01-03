@@ -50,5 +50,6 @@ module.exports = Pastery =
     delay = atom.config.get('pastery.dismissAfter') * 1000
     if delay > 0
       setTimeout (->
-        atom.notifications.getNotifications()[0].dismiss()
+        notifications = atom.notifications.getNotifications()
+        notifications[notifications.length - 1].dismiss()
       ), delay
