@@ -33,7 +33,11 @@ module.exports = Pastery =
       console.log 'Pastery.net response error', error
       console.log 'Pastery.net response body', body
 
+      url = JSON.parse(body).url
       if atom.config.get('pastery.injectToClipboard')
-        url = JSON.parse(body).url
         atom.clipboard.write(url)
+
+      msg = 'You can see your paste at ' + url
+      atom.notifications.addInfo('Paste created!', detail: msg, dismissable: true)
+
       return
