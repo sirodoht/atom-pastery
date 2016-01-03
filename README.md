@@ -1,4 +1,4 @@
-# Atom Pastery
+# Atom Pastery :cake:
 
 > A package for the sweetest pastebin, pastery.net
 
