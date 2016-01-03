@@ -1,3 +1,6 @@
+## 0.3.1
+* Fix settings button not showing up
+
 ## 0.3.0
 * Add notification
 * Cleanup code
