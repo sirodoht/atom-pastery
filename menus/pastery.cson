@@ -13,7 +13,7 @@
       'label': 'Pastery'
       'submenu': [
         {
-          'label': 'Paste'
+          'label': 'Post paste'
           'command': 'pastery:paste'
         }
       ]
