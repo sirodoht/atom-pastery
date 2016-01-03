@@ -26,6 +26,7 @@ module.exports = Pastery =
     if apiKey
       qs.api_key = apiKey
 
+    self = this
     request.post {
       qs: qs
       url: 'https://www.pastery.net/api/paste/'
@@ -33,12 +34,21 @@ module.exports = Pastery =
     }, (error, res, body) ->
       console.log 'Pastery.net response error', error
       console.log 'Pastery.net response body', body
-
       url = JSON.parse(body).url
+
       if atom.config.get('pastery.injectToClipboard')
         atom.clipboard.write(url)
 
-      msg = 'You can see your paste at ' + url
-      atom.notifications.addInfo('Paste created!', detail: msg, dismissable: true)
+      if atom.config.get('pastery.notification')
+        self.notify(url)
 
-      return
+  notify: (url) ->
+    msg = 'You can see your paste at ' + url
+
+    atom.notifications.addInfo('Paste created!', detail: msg, dismissable: true)
+
+    delay = atom.config.get('pastery.dismissAfter') * 1000
+    if delay > 0
+      setTimeout (->
+        atom.notifications.getNotifications()[0].dismiss()
+      ), delay
