@@ -37,8 +37,8 @@ module.exports = Pastery =
       url: 'https://www.pastery.net/api/paste/'
       body: content
     }, (error, res, body) ->
-      console.log 'Εrror', error
-      console.log 'Βody', body
+      console.log 'Pastery.net response error', error
+      console.log 'Pastery.net response body', body
 
       url = JSON.parse(body).url
       atom.clipboard.write(url)
