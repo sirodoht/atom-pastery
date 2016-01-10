@@ -5,7 +5,8 @@
   "description": "A package for the sweetest pastebin, pastery.net",
   "keywords": [
     "pastery",
-    "pastebin"
+    "pastebin",
+	"paste"
   ],
   "activationCommands": {
     "atom-workspace": "pastery:paste"
