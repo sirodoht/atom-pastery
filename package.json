@@ -1,12 +1,12 @@
 {
   "name": "pastery",
   "main": "./lib/pastery",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A package for the sweetest pastebin, pastery.net",
   "keywords": [
     "pastery",
     "pastebin",
-	"paste"
+    "paste"
   ],
   "activationCommands": {
     "atom-workspace": "pastery:paste"
