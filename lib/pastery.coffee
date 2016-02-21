@@ -19,10 +19,16 @@ module.exports = Pastery =
     editor = atom.workspace.getActiveTextEditor()
     fileName = editor.getTitle()
     content = editor.getSelectedText() || editor.getText()
-    apiKey = atom.config.get('pastery.apiKey')
+    apiKey = atom.config.get('pastery.a_apiKey')
+    views = atom.config.get('pastery.c_views')
+    expiration = atom.config.get('pastery.b_expiration')
 
     qs = {}
     qs.title = fileName
+    if views > 0
+      qs.max_views = views
+    if expiration > 0
+      qs.duration = expiration
     if apiKey
       qs.api_key = apiKey
 
@@ -36,10 +42,10 @@ module.exports = Pastery =
       console.log 'Pastery.net response body', body
       url = JSON.parse(body).url
 
-      if atom.config.get('pastery.injectToClipboard')
+      if atom.config.get('pastery.d_injectToClipboard')
         atom.clipboard.write(url)
 
-      if atom.config.get('pastery.notification')
+      if atom.config.get('pastery.e_notification')
         self.notify(url)
 
   notify: (url) ->
@@ -47,7 +53,7 @@ module.exports = Pastery =
 
     atom.notifications.addInfo('Paste created!', detail: msg, dismissable: true)
 
-    delay = atom.config.get('pastery.dismissAfter') * 1000
+    delay = atom.config.get('pastery.f_dismissAfter') * 1000
     if delay > 0
       setTimeout (->
         notifications = atom.notifications.getNotifications()
