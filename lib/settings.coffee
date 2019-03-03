@@ -30,3 +30,8 @@ module.exports =
       type: 'integer'
       default: 3
       description: 'If notification option is enabled, dismiss it after given seconds'
+    g_languageSyntax:
+      title: 'Syntax Highlighting'
+      type: 'string'
+      default: 'autodetect'
+      description: 'Sets the language for syntax highlighting'      
