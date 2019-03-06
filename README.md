@@ -16,4 +16,12 @@ Default shortcut is `ctrl+alt+p`
 apm install pastery
 ```
 
-Licensed under [MIT](LICENSE.md).
+## Develop
+
+1. Clone repo
+1. Symbolic link it on `~/.atom/packages`
+1. Release version with `apm publish {major/minor/patch}`
+
+## License
+
+[MIT](LICENSE.md).
