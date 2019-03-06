@@ -22,9 +22,11 @@ module.exports = Pastery =
     apiKey = atom.config.get('pastery.a_apiKey')
     views = atom.config.get('pastery.c_views')
     expiration = atom.config.get('pastery.b_expiration')
+    syntaxLanguage = atom.config.get('pastery.g_languageSyntax')
 
     qs = {}
     qs.title = fileName
+    qs.language = syntaxLanguage
     if views > 0
       qs.max_views = views
     if expiration > 0
