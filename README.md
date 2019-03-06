@@ -1,5 +1,7 @@
 # Atom Pastery
 
+[![Code Shelter](https://www.codeshelter.co/static/badges/badge-flat.svg)](https://www.codeshelter.co/)
+
 > A package for the sweetest pastebin, pastery.net :cake:
 
 Pastery creates a new paste on the [pastery.net](https://www.pastery.net) pastebin.
